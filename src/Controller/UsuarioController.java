@@ -144,7 +144,7 @@ public class UsuarioController implements ActionListener {
                 
                  UsuarioDAO userr = new UsuarioDAO();
                  usuario = userr.modificarUsuario(namess);
-                 DatosController datosC = new DatosController(this.principal);
+                 AlquilerController datosC = new AlquilerController(this.principal);
                  datosC.showDatos(usuario); 
                  this.userTable.setVisible(false);
                  

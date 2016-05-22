@@ -11,11 +11,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author terro
  */
-public class DatosVista extends javax.swing.JInternalFrame {
+public class AlquilerVista extends javax.swing.JInternalFrame {
 
-    DefaultTableModel stm;
-    DefaultTableModel stm_2;
-    public DatosVista(String[][] datos, String[] columns, String[][] datos_2, String[] columns_2) {
+    public DefaultTableModel stm;
+    public DefaultTableModel stm_2;
+    
+    public AlquilerVista(String[][] datos, String[] columns, String[][] datos_2, String[] columns_2) {
         initComponents();
         this.setVisible(true);
         
@@ -48,6 +49,9 @@ public class DatosVista extends javax.swing.JInternalFrame {
         btnDevolver = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla_libros_alquiler = new javax.swing.JTable();
+        btnAmpliar = new javax.swing.JButton();
+
+        setClosable(true);
 
         datos_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -57,7 +61,7 @@ public class DatosVista extends javax.swing.JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Titulo", "ISBN", "Fecha Alta", "Fecha Fin"
+                "Titulo", "Fecha_Alta", "Fecha Baja", "ISBN"
             }
         ));
         jScrollPane1.setViewportView(datos_table);
@@ -87,6 +91,8 @@ public class DatosVista extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(tabla_libros_alquiler);
 
+        btnAmpliar.setText("Ampliar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -108,7 +114,9 @@ public class DatosVista extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btlAlquilar, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(42, 42, 42)
-                                .addComponent(btnDevolver, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnDevolver, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)
+                                .addComponent(btnAmpliar, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 725, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(19, Short.MAX_VALUE))))
         );
@@ -131,7 +139,8 @@ public class DatosVista extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btlAlquilar)
-                    .addComponent(btnDevolver))
+                    .addComponent(btnDevolver)
+                    .addComponent(btnAmpliar))
                 .addGap(29, 29, 29))
         );
 
@@ -141,8 +150,9 @@ public class DatosVista extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btlAlquilar;
+    public javax.swing.JButton btnAmpliar;
     public javax.swing.JButton btnDevolver;
-    private javax.swing.JTable datos_table;
+    public javax.swing.JTable datos_table;
     public javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JLabel labelDireccion;

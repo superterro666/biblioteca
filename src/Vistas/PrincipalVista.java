@@ -49,7 +49,7 @@ public class PrincipalVista extends javax.swing.JFrame {
         );
         desktopPanelLayout.setVerticalGroup(
             desktopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 456, Short.MAX_VALUE)
+            .addGap(0, 550, Short.MAX_VALUE)
         );
 
         fileMenu.setMnemonic('f');
