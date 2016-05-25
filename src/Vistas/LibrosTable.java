@@ -14,17 +14,19 @@ import javax.swing.table.DefaultTableModel;
 public class LibrosTable extends javax.swing.JInternalFrame {
     
     public DefaultTableModel dtm;
+    private PrincipalVista vista;
     
     public LibrosTable() {
         initComponents();
     }
     
-    public LibrosTable(String[][] row, String[] column){
+    public LibrosTable(String[][] row, String[] column, PrincipalVista a){
     
         initComponents(); 
         this.setVisible(true);
         dtm = new DefaultTableModel(row,column);
         this.tabla_libros.setModel(dtm);
+        this.vista = a;
       
     
     }
@@ -44,6 +46,23 @@ public class LibrosTable extends javax.swing.JInternalFrame {
         btnModificar = new javax.swing.JButton();
 
         setClosable(true);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+                cerrar(evt);
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         tabla_libros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -90,6 +109,10 @@ public class LibrosTable extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cerrar(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_cerrar
+      this.vista.libroListarItem.setEnabled(true);
+    }//GEN-LAST:event_cerrar
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

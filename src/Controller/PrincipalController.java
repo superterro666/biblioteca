@@ -51,19 +51,21 @@ private PrincipalVista principal ;
                 
             case "userListItem":
                 
-               
+                 this.principal.ListarItem.setEnabled(false);
                  this.principal.desktopPanel.setLayout(new FlowLayout());
                  UsuarioController userT = new UsuarioController(this.principal);
                  userT.showTable();
             break;  
             
             case "crearLibro":
+                this.principal.libroItem.setEnabled(false);
                 this.principal.desktopPanel.setLayout(new FlowLayout());
                 LibrosController libroC = new LibrosController(this.principal);
                 libroC.showCreateUser();
                 break;
                 
             case "listarLibro":
+                 this.principal.libroListarItem.setEnabled(false);
                  this.principal.desktopPanel.setLayout(new FlowLayout());
                  LibrosController libroT = new LibrosController(this.principal);
                  libroT.showTable();

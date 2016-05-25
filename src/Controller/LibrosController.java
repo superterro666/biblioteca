@@ -35,7 +35,7 @@ public class LibrosController implements ActionListener {
 
     public void showCreateUser() {
 
-        this.libroVista = new LibrosVista();
+        this.libroVista = new LibrosVista(this.principal);
         this.libroVista.jButton1.addActionListener(this);
         this.principal.desktopPanel.add(this.libroVista);
 
@@ -49,12 +49,12 @@ public class LibrosController implements ActionListener {
         String[][] datosTabla = cambiarArrayLibros(arrayLibros);
         String[] columns = {"Titulo", "Autor", "Editorial", "ISBN"};
 
-        this.librosTable = new LibrosTable(datosTabla, columns);
-
+        this.librosTable = new LibrosTable(datosTabla, columns, this.principal);
+      
         this.librosTable.btnBorrar.addActionListener(this);
         this.librosTable.btnModificar.addActionListener(this);
-
         this.principal.desktopPanel.add(this.librosTable, 1);
+      
 
     }
 
@@ -64,6 +64,7 @@ public class LibrosController implements ActionListener {
         switch (e.getActionCommand()) {
 
             case "Crear":
+                this.principal.libroItem.setEnabled(true);
                 String[] valor = {this.libroVista.tituloTxt.getText(),
                     this.libroVista.autorTxt.getText(),
                     this.libroVista.editorialTxt.getText(),
@@ -102,7 +103,7 @@ public class LibrosController implements ActionListener {
                 break;
 
             case "Modificar":
-
+                this.principal.libroListarItem.setEnabled(true);
                 this.modificar = true;
                 int rows = this.librosTable.tabla_libros.getSelectedRow();
                 String names = this.librosTable.dtm.getValueAt(rows, 3).toString();
@@ -110,7 +111,7 @@ public class LibrosController implements ActionListener {
 
                 Libros libros = daos.modificarLibros(names);
 
-                this.libroVista = new LibrosVista();
+                this.libroVista = new LibrosVista(this.principal);
 
                 this.libroVista.tituloTxt.setText(libros.getTitulo());
                 this.libroVista.autorTxt.setText(libros.getAutor());

@@ -11,10 +11,9 @@ package Vistas;
  */
 public class LibrosVista extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form LibrosVista
-     */
-    public LibrosVista() {
+    PrincipalVista vista;
+    public LibrosVista(PrincipalVista a) {
+        this.vista = a;
         initComponents();
         this.setVisible(true);
     }
@@ -39,6 +38,23 @@ public class LibrosVista extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
 
         setClosable(true);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+                cerrar(evt);
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jLabel1.setText("Titulo");
 
@@ -100,6 +116,12 @@ public class LibrosVista extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cerrar(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_cerrar
+        
+        this.vista.libroItem.setEnabled(true);
+        
+    }//GEN-LAST:event_cerrar
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

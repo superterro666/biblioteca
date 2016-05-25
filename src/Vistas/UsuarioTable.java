@@ -17,22 +17,24 @@ import javax.swing.table.DefaultTableModel;
  * @author terro
  */
 public class UsuarioTable extends javax.swing.JInternalFrame {
+    PrincipalVista vista;
 
     private PrincipalVista principal;
     public DefaultTableModel dtm;
 
     public UsuarioTable() {
+       
         initComponents();
     }
     
     
 
-    public UsuarioTable(String[][] row, String[] column) {
+    public UsuarioTable(String[][] row, String[] column,PrincipalVista a) {
         initComponents();
         this.setVisible(true);
         dtm = new DefaultTableModel(row,column);
         this.tabla_user.setModel(dtm);
-        
+        this.vista = a;
         
     }
         
@@ -60,6 +62,23 @@ public class UsuarioTable extends javax.swing.JInternalFrame {
         btnDatos = new javax.swing.JButton();
 
         setClosable(true);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+                cerrar(evt);
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         btnBorrarUser.setText("Borrar");
 
@@ -120,6 +139,10 @@ public class UsuarioTable extends javax.swing.JInternalFrame {
     private void btnModificarUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnModificarUserActionPerformed
+
+    private void cerrar(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_cerrar
+        this.vista.ListarItem.setEnabled(true);
+    }//GEN-LAST:event_cerrar
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

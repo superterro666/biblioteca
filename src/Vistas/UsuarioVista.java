@@ -6,13 +6,15 @@
 package Vistas;
 
 import Controller.UsuarioController;
+import java.awt.event.WindowAdapter;
 
 
 public class UsuarioVista extends javax.swing.JInternalFrame {
+    
     PrincipalVista vista;
     
-    public UsuarioVista() {
-     
+    public UsuarioVista(PrincipalVista a) {
+      this.vista = a;
       this.setVisible(true);
     
      
@@ -47,20 +49,20 @@ public class UsuarioVista extends javax.swing.JInternalFrame {
 
         setClosable(true);
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
-            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
                 cerrar(evt);
             }
-            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
             }
-            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
-            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
             }
         });
 
@@ -157,6 +159,7 @@ public class UsuarioVista extends javax.swing.JInternalFrame {
 
     private void cerrar(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_cerrar
            
+        this.vista.UserItem.setEnabled(true);
             
     }//GEN-LAST:event_cerrar
 
@@ -182,4 +185,6 @@ public class UsuarioVista extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
+
+   
 }
