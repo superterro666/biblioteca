@@ -93,7 +93,7 @@ public class LibrosDAO {
       public void borrarLibro(String valor) {
 
         String query = "DELETE FROM libros WHERE isbn='"+valor+"'";
-          System.out.println(query);
+         
          
 
         Statement stmt;

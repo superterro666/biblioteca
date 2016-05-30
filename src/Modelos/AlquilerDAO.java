@@ -154,7 +154,7 @@ public class AlquilerDAO {
             e.printStackTrace();
         }
 
-        if (numRows <= 1) {
+        if (numRows <= 2) {
 
             return false;
 

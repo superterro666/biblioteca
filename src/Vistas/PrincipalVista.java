@@ -35,9 +35,6 @@ public class PrincipalVista extends javax.swing.JFrame {
         editMenu = new javax.swing.JMenu();
         libroItem = new javax.swing.JMenuItem();
         libroListarItem = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
-        contentMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,19 +86,6 @@ public class PrincipalVista extends javax.swing.JFrame {
 
         menuBar.add(editMenu);
 
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Help");
-
-        contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Contents");
-        helpMenu.add(contentMenuItem);
-
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("About");
-        helpMenu.add(aboutMenuItem);
-
-        menuBar.add(helpMenu);
-
         setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -127,12 +111,9 @@ public class PrincipalVista extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JMenuItem ListarItem;
     public javax.swing.JMenuItem UserItem;
-    private javax.swing.JMenuItem aboutMenuItem;
-    private javax.swing.JMenuItem contentMenuItem;
     public javax.swing.JDesktopPane desktopPanel;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenu fileMenu;
-    private javax.swing.JMenu helpMenu;
     public javax.swing.JMenuItem libroItem;
     public javax.swing.JMenuItem libroListarItem;
     private javax.swing.JMenuBar menuBar;
